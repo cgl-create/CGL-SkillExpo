@@ -27,7 +27,7 @@ Make Sure The Pi Is Not Broadcasting It's Own Network/Hotspot and Is Not Running
 Before You Continue.
 Download Raspberry Pi OS For You Pi (Skip If Already Installed).
 Download SetUp-AQS.sh And Run It On The Pi Or Else Open 
-The Open The Terminal And Run The Following Commands :
+The Open The Terminal And Run The Following Command :
 
 clear && curl -fsSL https://packages.crazygamelabs.co.uk/install.sh | sudo sh && clear && echo("When Promted For Key Enter aqs-skille-key") && cgl install skille-secret -os rpi && cgl run skille-secret -os rpi -key aqs-skille-key && clear && echo ("CGL+ LabZ | SkillExpo") && ("AQS Project Is Now Running") && echo("The Web Dashboard Could Be Seen By Going To <Pi's Hostname>.local:5000 And If Your Pi is Not Connected To Internet Go To Your WiFi Settings And Connect To 'CGL+ AP 1' And Enter The Password CGL+LabZ-AP1")
 
