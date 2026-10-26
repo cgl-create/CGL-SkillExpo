@@ -9,11 +9,11 @@ First To Make The Project You The Following Components/Devices :
 * Green LED
 
 ## Step 2
-Wire The Components To The Arduino Using The PIN Map, Connect GND To GND .
+Wire The Components To The Arduino Using The Pin Map, Connect GND To GND .
 * MQ-2 digital output (DO) -> D2
 * MQ-2 analog output (AO)	-> A0
-* Red LED	-> D3
-* Green LED	-> D5
+* Red LED	-> 330 Ω -> D3
+* Green LED	-> 330 Ω -> D5
 * Buzzer -> D8
 
 ## Step 3
