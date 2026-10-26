@@ -7,6 +7,7 @@ First To Make The Project You The Following Components/Devices :
 * Buzzer
 * Red LED
 * Green LED
+* Resistors [ x2 ( 330 Ω ) ]
 
 ## Step 2
 Wire The Components To The Arduino Using The Pin Map, Connect GND To GND .
