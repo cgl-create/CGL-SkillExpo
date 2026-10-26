@@ -35,6 +35,6 @@ clear && curl -fsSL https://packages.crazygamelabs.co.uk/install.sh | sudo sh &&
 Connect the Arduino To Your Pi Via a USB Cable, Turn It On And Voila.
 
 ## Step 6
-Connect You Pi To The Internet Wirelessly, By Ethernet Or By Running The Following Command : sudo nmtui
-If Not Possible Go to You WiFi Settings And Connect To 'CGL+ AP 1' And The Password 'CGL+LabZ-AP1'.
+Connect Your Pi To The Internet Wirelessly, By Ethernet Or By Running The Following Command : sudo nmtui
+If Not Possible Go to Your WiFi Settings And Connect To 'CGL+ AP 1' And The Password 'CGL+LabZ-AP1'.
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
