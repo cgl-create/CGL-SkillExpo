@@ -41,7 +41,7 @@ Connect Your Pi To The Internet Wirelessly, By Ethernet Or By Running The Follow
 
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
 
-### Without Your wiFi
+### Without Your WiFi
 If Not Possible Go to Your WiFi Settings And Connect To 'CGL+ AP 1' And The Password 'CGL+LabZ-AP1'.
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
 
