@@ -1,4 +1,4 @@
-# AQS
+# Air Quality Sensor [ AQS ]
 ## Step 1
 First To Make The Project You Need The Following Components/Devices :
 * Raspberry Pi (Reccomended To Use Model 3B+)
