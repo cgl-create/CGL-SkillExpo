@@ -18,7 +18,7 @@ Wire The Components To The Arduino Using The Pin Map, Connect GND To GND .
 * Buzzer -> D8
 
 ## Step 3
-Download CGL-SkillExpo-AQS.ino Or Go To The Following Link And Paste The Code To The Arduino :
+Download CGL-SkillExpo-AQS.ino Or Go To The Following Link And Flash The Code To The Arduino :
 https://app.arduino.cc/sketches/3faa94c0-82ae-4cfd-a0c1-9455152906e6?view-mode=preview
 
 ## Step 4
