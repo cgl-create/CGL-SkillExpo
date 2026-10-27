@@ -1,6 +1,6 @@
 # AQS
 ## Step 1
-First To Make The Project You The Following Components/Devices :
+First To Make The Project You Need The Following Components/Devices :
 * Raspberry Pi (Reccomended To Use Model 3B+)
 * Arduino UNO
 * MQ-2
