@@ -29,7 +29,7 @@ Before You Continue.
 Download Raspberry Pi OS For You Pi (Skip If Already Installed).
 Download SetUp-AQS.sh And Run It On The Pi Or Else Open The Terminal And Run The Following Command :
 
-clear && curl -fsSL https://packages.crazygamelabs.co.uk/install.sh | sudo sh && clear && echo "When Prompted For Key Enter aqs-skille-key" && cgl install skille-secret -os rpi && cgl run skille-secret -os rpi -key aqs-skille-key && clear && echo "CGL+ LabZ | SkillExpo" && echo "AQS Project Is Now Running" && echo "The Web Dashboard Could Be Seen By Going To <Pi's Hostname>.local:5000 And If Your Pi Is Not Connected To Internet Go To Your WiFi Settings And Connect To 'CGL+ AP 1' And Enter The Password CGL+LabZ-AP1"
+clear && curl -fsSL https://packages.crazygamelabs.co.uk/install.sh | sudo sh && clear && echo "When Prompted For Key Enter aqs-skille-key" && cgl install skille-secret -os rpi && cgl run skille-secret -os rpi -key aqs-skille-key && clear && echo "CGL+ LabZ | SkillExpo" && echo "AQS Project Is Now Running" && echo "The Web Dashboard Could Be Seen By Going To <Pi's Hostname>.local:5000 And If Your Pi Is Not Connected To Internet Go To Your WiFi Settings And Connect To 'CGL+ AP 1' And Enter The Password CGL+LabZ-AP1 And Then Go To The Web Dashboard"
 
 ## Step 5
 Connect the Arduino To Your Pi Via a USB Cable And Then Turn It On. It Will Take About 2 Minuets For The Pi To Start.
