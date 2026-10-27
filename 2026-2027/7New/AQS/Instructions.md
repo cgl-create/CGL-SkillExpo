@@ -45,8 +45,8 @@ Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The L
 If Not Possible Go to Your WiFi Settings And Connect To 'CGL+ AP 1' And The Password 'CGL+LabZ-AP1'.
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
 
-### Note
-while You Are Connected To The Pi's Network You Will Not Recieve Internt Access To Websites Like google.com
+### Note [ Please Read ]
+While You Are Connected To The Pi's Network You Will Not Recieve Internt Access To Websites Like google.com
 
 If <Pi's Hostname>.local:5000 Does Not Work Try Going To 192.168.4.1:5000 [ Only when You Are Connected To The Pi's Network ]
 
