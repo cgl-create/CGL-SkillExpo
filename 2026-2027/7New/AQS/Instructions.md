@@ -1,4 +1,4 @@
-#### Air Quality Sensor [ AQS ]
+# Air Quality Sensor [ AQS ]
 ## Step 1
 First To Make The Project You Need The Following Components/Devices :
 * Raspberry Pi (Reccomended To Use Model 3B+)
@@ -34,11 +34,13 @@ clear && curl -fsSL https://packages.crazygamelabs.co.uk/install.sh | sudo sh &&
 ## Step 5
 Connect the Arduino To Your Pi Via a USB Cable And Then Turn It On. It Will Take About 2 Minuets For The Pi To Start.
 
-## Step 6 ( With Your WiFi )
+## Step 6
+
+### With Your WiFi
 Connect Your Pi To The Internet Wirelessly, By Ethernet Or By Running The Following Command : sudo nmtui
 
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
 
-## Step 6 ( Without Your wiFi )
+### Without Your wiFi
 If Not Possible Go to Your WiFi Settings And Connect To 'CGL+ AP 1' And The Password 'CGL+LabZ-AP1'.
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
