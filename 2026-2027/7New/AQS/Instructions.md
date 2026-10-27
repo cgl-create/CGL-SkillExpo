@@ -36,6 +36,7 @@ Connect the Arduino To Your Pi Via a USB Cable And Then Turn It On. It Will Take
 
 ## Step 6 ( With Your WiFi )
 Connect Your Pi To The Internet Wirelessly, By Ethernet Or By Running The Following Command : sudo nmtui
+
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
 
 ## Step 6 ( Without Your wiFi )
