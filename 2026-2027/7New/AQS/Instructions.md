@@ -44,3 +44,13 @@ Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The L
 ### Without Your wiFi
 If Not Possible Go to Your WiFi Settings And Connect To 'CGL+ AP 1' And The Password 'CGL+LabZ-AP1'.
 Then Go To <Pi's Hostname>.local:5000 To See The Dashboard Or Just Look At The LEDs.
+
+### Note
+while You Are Connected To The Pi's Network You Will Not Recieve Internt Access To Websites Like google.com
+
+If <Pi's Hostname>.local:5000 Does Not Work Try Going To 192.168.4.1:5000 [ Only when You Are Connected To The Pi's Network ]
+
+Replace ' <Pi's Hostname> ' With You Pi's Actual Hostname. If You Do Not Know The Hostname Of You Pi You Could Find It By Going Following Any Of The 3 Steps Given Below :
+* Go To Your Pi's Setting And Click On 'About' And Find You Pi's Hostname.
+* Go To Your Terminal And Check For The Pi's Hostname After The @ . For Examaple : It Says user@expo-goal Then expo-goal Is Your Pi's Hostname
+* Go To Your Terminal And Run The Folowing Command : hostname -s
