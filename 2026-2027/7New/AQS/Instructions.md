@@ -54,3 +54,5 @@ Replace ' <Pi's Hostname> ' With You Pi's Actual Hostname. If You Do Not Know Th
 * Go To Your Pi's Setting And Click On 'About' And Find You Pi's Hostname.
 * Go To Your Terminal And Check For The Pi's Hostname After The @ . For Examaple : It Says user@expo-goal Then expo-goal Is Your Pi's Hostname
 * Go To Your Terminal And Run The Folowing Command : hostname -s
+
+**Do Not Directly Unplug The Pi Like The Arduino**. Instead Shutdown The Pi Safely Or Just Click The ShutDown Button On The WebDashboard To Safely Shutdown The Pi.
