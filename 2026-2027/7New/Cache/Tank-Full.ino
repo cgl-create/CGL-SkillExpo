@@ -1,9 +1,9 @@
 #include <Servo.h>
 
 // CGL+ Skills Expo — Tank-Full
-// Safe scanner build: ultrasonic obstacle detection + servo head.
-// The existing Tank.ino is left unchanged.
-// No projectile-launcher control is implemented in this file.
+// Scanner demo: ultrasonic obstacle detection + servo head.
+// The original Tank.ino is left unchanged.
+// This file does not control a projectile launcher.
 
 Servo tankServo;
 
@@ -12,13 +12,27 @@ const int echoPin = 8;
 const int servoPin = 6;
 
 const float detectionRadius = 25.0;
+const unsigned long maxPauseMs = 25000UL;
+const int maxMisses = 10;
 
 int currentAngle = 0;
 int sweepDirection = 2;
-
-bool isLocked = false;
 int missCounter = 0;
-const int maxMisses = 10;
+
+bool isPaused = false;
+bool ignoreObstacleUntilClear = false;
+unsigned long pauseStartedAt = 0;
+
+void resumeScanning(const char* reason) {
+  isPaused = false;
+  ignoreObstacleUntilClear = (reason[0] == 'T'); // timeout: don't immediately pause on the same obstacle
+  missCounter = 0;
+
+  Serial.println(reason);
+  tankServo.attach(servoPin);
+  tankServo.write(currentAngle);
+  delay(150);
+}
 
 void setup() {
   Serial.begin(9600);
@@ -41,36 +55,46 @@ void loop() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  unsigned long duration = pulseIn(echoPin, HIGH, 20000);
+  unsigned long duration = pulseIn(echoPin, HIGH, 20000UL);
   float distance = (duration == 0) ? 999.0 : (duration * 0.0343 / 2.0);
+  bool obstaclePresent = (distance > 0.0 && distance <= detectionRadius);
 
-  // Pause the scanning head when an obstacle is within 25 cm.
-  if (distance > 0.0 && distance <= detectionRadius) {
+  // After the 25-second timeout, keep scanning rather than immediately
+  // pausing again on the same obstacle. Re-arm after it leaves the range.
+  if (ignoreObstacleUntilClear && !obstaclePresent) {
+    ignoreObstacleUntilClear = false;
+    Serial.println("Obstacle cleared. Detection re-armed.");
+  }
+
+  if (obstaclePresent && !ignoreObstacleUntilClear) {
     missCounter = 0;
 
-    if (!isLocked) {
-      isLocked = true;
+    if (!isPaused) {
+      isPaused = true;
+      pauseStartedAt = millis();
       Serial.print("Obstacle detected at ");
       Serial.print(distance);
-      Serial.println(" cm. Pausing scan.");
+      Serial.println(" cm. Pausing scan for up to 25 seconds.");
       tankServo.detach();
     }
-  } else {
+  } else if (isPaused) {
     if (missCounter < maxMisses) {
       missCounter++;
     }
 
-    if (missCounter >= maxMisses && isLocked) {
-      isLocked = false;
-      Serial.println("Obstacle no longer detected. Resuming scan.");
-      tankServo.attach(servoPin);
-      tankServo.write(currentAngle);
-      delay(150);
+    // Resume immediately after 10 consecutive missed readings.
+    if (missCounter >= maxMisses) {
+      resumeScanning("Obstacle disappeared. Resuming scan.");
     }
   }
 
-  // Sweep only while no obstacle is detected.
-  if (!isLocked) {
+  // Maximum pause is 25 seconds, even if the obstacle remains present.
+  if (isPaused && (unsigned long)(millis() - pauseStartedAt) >= maxPauseMs) {
+    resumeScanning("25-second pause elapsed. Resuming scan.");
+  }
+
+  // Sweep only when the head is not paused.
+  if (!isPaused) {
     currentAngle += sweepDirection;
 
     if (currentAngle >= 180) {
