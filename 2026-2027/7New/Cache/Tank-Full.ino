@@ -23,9 +23,11 @@ bool isPaused = false;
 bool ignoreObstacleUntilClear = false;
 unsigned long pauseStartedAt = 0;
 
-void resumeScanning(const char* reason) {
+void resumeScanning(const char* reason, bool timedOut) {
   isPaused = false;
-  ignoreObstacleUntilClear = (reason[0] == 'T'); // timeout: don't immediately pause on the same obstacle
+  // If the timer expires while an obstacle is still present, keep scanning
+  // until that obstacle leaves range so we do not immediately pause again.
+  ignoreObstacleUntilClear = timedOut;
   missCounter = 0;
 
   Serial.println(reason);
@@ -59,8 +61,8 @@ void loop() {
   float distance = (duration == 0) ? 999.0 : (duration * 0.0343 / 2.0);
   bool obstaclePresent = (distance > 0.0 && distance <= detectionRadius);
 
-  // After the 25-second timeout, keep scanning rather than immediately
-  // pausing again on the same obstacle. Re-arm after it leaves the range.
+  // After timeout, keep scanning rather than immediately pausing again
+  // on the same obstacle. Re-arm detection once it leaves the range.
   if (ignoreObstacleUntilClear && !obstaclePresent) {
     ignoreObstacleUntilClear = false;
     Serial.println("Obstacle cleared. Detection re-armed.");
@@ -82,15 +84,15 @@ void loop() {
       missCounter++;
     }
 
-    // Resume immediately after 10 consecutive missed readings.
+    // Resume when 10 consecutive readings report no obstacle.
     if (missCounter >= maxMisses) {
-      resumeScanning("Obstacle disappeared. Resuming scan.");
+      resumeScanning("Obstacle disappeared. Resuming scan.", false);
     }
   }
 
-  // Maximum pause is 25 seconds, even if the obstacle remains present.
+  // Resume after 25 seconds even if the obstacle remains present.
   if (isPaused && (unsigned long)(millis() - pauseStartedAt) >= maxPauseMs) {
-    resumeScanning("25-second pause elapsed. Resuming scan.");
+    resumeScanning("25-second pause elapsed. Resuming scan.", true);
   }
 
   // Sweep only when the head is not paused.
